@@ -1,0 +1,217 @@
+/*Fazendo o reset das propriedades css do navegador!!*/
+* {
+    margin: 0;
+    /*Estou deixando a margem com 0 */
+    padding: 0;
+    /*Estou deixando o preenchimento com 0 */
+    box-sizing: border-box;
+}
+
+/*Fim do reset*/
+ul {
+    list-style: none;
+}
+
+body {
+    /*Adicionamos a imagem ao body*/
+    background-image: url(./assets/bg.jpg);
+    /*Adicionamos a propriedade top center para que mantenha as img sempre no centro do site */
+    background-position: top center;
+    /*Podemos manipular a largura da imagem, o 100% é da largura e o auto é para que a altura fique automático*/
+    background-size: 100% auto;
+    /*Usamos o no-repeat para o background não ficar repetindo*/
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    /*Com isso podemos alterar a fonte de um documento*/
+    font-family: 'Inter', sans-serif;
+    /*Altura da fonte */
+    line-height: 160%;
+}
+
+header {
+    /* text-align: center; Alinha a tag, porém somente funciona se ele tiver algo com a propriedade de texto. */
+    margin-top: 32px;
+    /* Estamos definindo um tamanho para o header, usamos a função calc() para calcular a soma dos px. */
+    height: calc(120px + 32px);
+}
+
+header div {
+    /* Adicionamos 120px de largura. */
+    width: 120px;
+    /*Com isso alinhamos a div no centro já que agora ela não tem mais a propriedade de texto */
+    margin: auto;
+    /* Podemos adicionar um gradient dessa forma: */
+    background-image: linear-gradient(90deg, #9872fc 0%, #43e7ad 50.52%, #e2d45c 100%);
+    border-radius: 50%;
+    /* Está adicionando as propriedades flex a todos dentro da div * /
+    display: flex;
+    /* Coloca um preenchimento na div */
+    padding: 4px;
+    /* Usamos essa propriedade para determinar o tempo de retorno da animação */
+    transition: transform .3s;
+}
+
+/*Com essa parte iremos fazer uma animação na div */
+header div:hover {
+    transform: scale(1.1);
+    /*Dessa forma quando passarmos o mouso sobre a div ela irá pulsar */
+}
+
+header div img {
+    width: 100%;
+    /*Fazemos o aredondamento da borda da tag*/
+    border-radius: 50%;
+}
+
+
+main {
+    /* Usamos essa propriedade para limitar o tamanho máximo que os cards podem ter */
+    max-width: 580px;
+    /* A função desse é caso a tela não tenha 500px deixar os cards com 90% dessa tela, ou seja, se for 100px, os cards vão ser 90px */
+    width: 90%;
+    /*O tamanho das margens vai ser calculado de forma automática*/
+    /*Quando o margin tem dois valores o 1° coresponde a parte de cima e baixo, o segundo é referente aos lados*/
+    margin: 32px auto;
+    /*Forma de mudar as caracteristicas das tag também*/
+    display: grid;
+    gap: 24px;
+
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9872fc 0%, #43e7ad 50.52%, #e2d45c 100%);
+    /* Colocamos um preenchimento de 4px */
+    padding-top: 4px;
+    /* Fazemos o aredondamento da borda da tag */
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2a2634;
+    /* Com ele consigo colocar 32px em todas as laterais da div */
+    padding: 32px;
+    /* Alteramos o comando de cima, com isso o top ficou com 24px */
+    padding-top: 24px;
+    /*Fazemos o aredondamento da borda da tag*/
+    border-radius: 8px;
+}
+
+section h2 {
+    /*Espaço entre as letras*/
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    /*Mudamos a cor do texto*/
+    color: #A1A1AA;
+}
+
+section ul {
+    /*Possibilita mudar a caracteristica da tag*/
+    display: flex;
+    flex-wrap: wrap;
+    /*faz com que os li tenha uma distancia entre si, só funciona por causa do display flex  */
+    gap: 16px;
+    /*Adiciona margem na parte superir das UL*/
+    margin-top: 24px;
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+.games-list img {
+    /*Altura da imagem*/
+    width: 90px;
+    /*Com essa propriedade podemos adicionar bordas nas imagens/tag de nosso projeto*/
+    border-radius: 8px;
+}
+
+.channel-list img {
+    /*Fazemos o aredondamento da borda da tag*/
+    border-radius: 50%;
+    /*Definimos a altura em 70px*/
+    width: 70px;
+    /* Definimos as características da borda da img*/
+    border: 1px solid #443e54;
+}
+
+/* Animation */
+
+header div {
+    animation: fromTop .7s .2s backwards;
+    /* Estamos ativando a animação, definindo a duração, o delay e puxamos as propriedades do from. */
+    /* animation-delay: 1s; Com essa propriedade podemos definir o delay de quanto tempo depois de carregado a página a animação irá começar, ou podemos adicionar o tempo a frente do animation. */
+}
+
+/* Para iniciarmos uma animação precisamos colocar o @keyframes e depois um nome qualquer para nossa animação */
+@keyframes fromTop {
+
+    /* De aonde ele vai começar */
+    from {
+        /* Estamos deixando ele apagado */
+        opacity: 0;
+        /* Estamos colocando o elemento 30px para cima da sua posição original. */
+        transform: translateY(-30px);
+    }
+
+    /* Onde vai terminar */
+    to {
+        /* Colocamos ele visivel novamente. */
+        opacity: 1;
+        /* O translateY() é o eixo y da página, ou seja, a parte vertical do html */
+        /* Sempre ele vai ser 0 porque é onde terminar a animação, ou seja, a posição atual. */
+        transform: translateY(0);
+    }
+}
+
+main section {
+    /* Ativando a animação. */
+    animation: fromBottom .7s backwards;
+}
+
+/* Com a propriedade nth-child() podemos pegar separados por números os sections dentro do main. */
+/* Estamos pegando o 1 section dentro do main*/
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+/* Estamos pegando o 1 section dentro do main*/
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+/* Estamos pegando o 1 section dentro do main*/
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+@keyframes fromBottom {
+
+    /* De aonde ele vai começar */
+    from {
+        /* Estamos deixando ele apagado */
+        /* O translateY() é o eixo y da página, ou seja, a parte vertical do html */
+        opacity: 0;
+        /* Estamos colocando o elemento 30px para baixo da sua posição original. */
+        transform: translateY(30px);
+    }
+
+    /* Onde vai terminar */
+    to {
+        /* Colocamos ele visivel novamente. */
+        opacity: 1;
+        /* O translateY() é o eixo y da página, ou seja, a parte vertical do html */
+        /* Sempre ele vai ser 0 porque é onde terminar a animação, ou seja, a posição atual. */
+        transform: translateY(0);
+    }
+}
