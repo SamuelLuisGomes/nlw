@@ -46,10 +46,10 @@ header div {
     /* Podemos adicionar um gradient dessa forma: */
     background-image: linear-gradient(90deg, #9872fc 0%, #43e7ad 50.52%, #e2d45c 100%);
     border-radius: 50%;
-    /* Está adicionando as propriedades flex a todos dentro da div * /
+    /*Está adicionando as propriedades flex a todos dentro da div*/
     display: flex;
     /* Coloca um preenchimento na div */
-    padding: 4px;
+    padding: 5px;
     /* Usamos essa propriedade para determinar o tempo de retorno da animação */
     transition: transform .3s;
 }
